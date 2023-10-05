@@ -1,0 +1,58 @@
+Question:
+
+Take as input a number n, the number of rows
+Print the following pattern
+    1
+  2 3 2
+3 4 5 4 3
+  2 3 2
+    1
+for n = 5.
+
+Solution:
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        
+        int numval = 1;
+        int nsp = n/2;
+        int count=1; // initial number should be 1
+        
+        for(int i=1;i<=n;i++){  	// this loop is for rows
+            if(i<=n/2){			// here in this pattern upper half is first element of each roe should be same as row number
+                count=i;
+            }
+            else{
+                count=n-i+1;		// for lower half should be first element of each row should be no.of rows - current or + 1
+            }
+            for(int j=1;j<=nsp;j++){
+                System.out.print("  ");
+            }
+            for(int k=1;k<=numval;k++){
+                System.out.print(count+" "); 	// printing the values
+                if(k<=(numval/2)){		
+                    count++;
+                }
+                else{
+                    count--;
+                }
+            }
+            if(i<=n/2){				// preparing for next iteration
+                nsp--;
+                numval=numval+2;
+            }
+            else{
+                nsp++;
+                numval=numval-2;
+            }
+            System.out.println();
+        }
+    }
+}

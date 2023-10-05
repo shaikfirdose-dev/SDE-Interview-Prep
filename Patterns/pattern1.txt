@@ -1,0 +1,35 @@
+Question:
+
+Take as input a number n, the number of rows  
+Print the following pattern  
+*  
+*	*  
+*	*	*  
+*	*	*	*  
+*	*	*	*	*  
+for n = 5.
+
+
+
+Solution:
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int nstr = 1; // initial no.of stars in first row
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=nstr;j++){
+                System.out.print("*"+" ");
+            }
+            nstr++; // incrementing the stars for next row
+            System.out.println(); // going for new line
+        }
+    }
+}
