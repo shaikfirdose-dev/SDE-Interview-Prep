@@ -1,5 +1,3 @@
-//Question: Frequency of the Array
-
 package com.firdose.arrays;
 
 import java.util.HashMap;
