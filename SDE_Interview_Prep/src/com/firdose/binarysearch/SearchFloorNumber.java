@@ -7,7 +7,6 @@
 //	
 //output: 4
 
-
 package com.firdose.binarysearch;
 
 import java.util.Scanner;

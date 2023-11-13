@@ -13,19 +13,19 @@ public class GoodInteger {
 		Scanner sc =new Scanner(System.in);
 		int n = sc.nextInt();
 		int[] arr = new int[n];
-		for(int i=0;i<n;i++) {
+		for(int i=0;i<n;i++) {   // taking input array
 			arr[i]=sc.nextInt();
 		}
 		System.out.println(goodInteger(arr, n));
 	}
 
 	private static int goodInteger(int[] arr, int n) {
-		Arrays.sort(arr);
-		int count=0;
+		Arrays.sort(arr); // sort the array 
+		int count=0;      // counting no.of good integer
 		for(int i=0;i<n;i++) {
-			if(arr[i]==i) {
-				count++;
-			}
+			if(arr[i]==i) {   // checking if current integer is equal to their index or not because
+				count++;		// after sorting the array all the elements should be in increasing order so that we can easily 
+			}					// get the good integer by checking its index
 		}
 		return count;
 	}
