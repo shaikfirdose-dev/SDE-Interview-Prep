@@ -22,17 +22,17 @@ public class GoodIntegerDuplicates {
 	}
 
 	private static int goodIntegers(int[] arr, int n) {
-		Arrays.sort(arr);
-		int count=0;
-		int lessCount=0;
-		if(arr[0]==0) {
+		Arrays.sort(arr);  // first sort the array so that elements should be in increasing order
+		int count=0;		// this count is for counting good integers
+		int lessCount=0;	// this is for storing the good integer index
+		if(arr[0]==0) { 	//edge case-> if first element is zero then it should definitely good integer
 			count++;
 		}
 		for(int i=1;i<n;i++) {
-			if(arr[i]!=arr[i-1]) {
-				lessCount=i;
+			if(arr[i]!=arr[i-1]) {   // checking current element is first occurance or not
+				lessCount=i;			// if first element is first occurance then store its index
 			}
-			if(arr[i]==lessCount) {
+			if(arr[i]==lessCount) {   // here check element and index of good integer, if both are same then count
 				count++;
 			}
 		}
