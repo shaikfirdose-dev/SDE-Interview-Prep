@@ -16,7 +16,7 @@ public class ReorderLinkedList {
 		// 3. Merge the two linkedList
 		Node slow = head;
 		Node fast = head;
-		while (fast != null && fast.next != null) {
+		while (fast != null && fast.next != null) {  // finding mid
 			slow = slow.next;
 			fast = fast.next.next;
 		}
@@ -24,7 +24,7 @@ public class ReorderLinkedList {
 		slow.next = null;
 		Node prev = null;
 
-		while (curr != null) {
+		while (curr != null) { 			// reversing second half of linkedlist
 			Node currp1 = curr.next;
 			curr.next = prev;
 			prev = curr;
@@ -34,7 +34,7 @@ public class ReorderLinkedList {
 		Node left = head;
 		Node right = prev;
 
-		while (right != null) {
+		while (right != null) {    		// merging two linkedlist
 			Node leftp1 = left.next;
 			Node rightp1 = right.next;
 
