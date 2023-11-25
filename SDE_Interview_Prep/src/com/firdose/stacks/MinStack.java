@@ -7,8 +7,6 @@ import java.util.Stack;
 public class MinStack {
 	Stack<Integer> stack = new Stack<>();
     Stack<Integer> minStack = new Stack<>();
-
-   
     
     public void push(int val) {
         stack.push(val);
