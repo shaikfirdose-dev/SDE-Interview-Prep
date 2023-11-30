@@ -2,6 +2,7 @@ package com.firdose.trees;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
@@ -33,7 +34,15 @@ public class ReverseLevelOrderTraversal {
 			}
 			ans.add(elements);
 		}
-		Collections.reverse(ans);
+		int i = 0;
+		int j = ans.size() - 1;
+		while (i <= j) {
+			List<Integer> temp = ans.get(i);
+			ans.set(i, ans.get(j));
+			ans.set(j, temp);
+			i++;
+			j--;
+		}
 		return ans;
 
 	}
