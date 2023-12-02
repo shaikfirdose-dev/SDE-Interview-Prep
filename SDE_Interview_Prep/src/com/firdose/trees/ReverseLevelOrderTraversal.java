@@ -10,7 +10,7 @@ public class ReverseLevelOrderTraversal {
 
 	public List<List<Integer>> levelOrderBottom(TreeNode root) {
 
-		Queue<TreeNode> queue = new LinkedList<>();
+		Queue<TreeNode> queue = new LinkedList<>(); 
 		List<List<Integer>> ans = new ArrayList<>();
 
 		if (root == null) {
