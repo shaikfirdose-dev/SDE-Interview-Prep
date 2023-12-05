@@ -20,6 +20,7 @@ public class PairSum {
 		System.out.println(pairSum(arr, n, k));
 	}
 
+
 	private static String pairSum(int[] arr, int n, int k) {
 		HashMap<Integer, Integer> hm = new HashMap<>();
 		for (int i = 0; i < n; i++) {
