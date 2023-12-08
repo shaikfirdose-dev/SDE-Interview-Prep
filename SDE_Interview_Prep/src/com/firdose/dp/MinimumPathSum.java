@@ -24,6 +24,7 @@ public class MinimumPathSum {
 		if (m < 0 || n < 0) {
 			return Integer.MAX_VALUE;
 		}
+
 		// 0th value
 		if (m == 0 && n == 0) {
 			return grid[0][0];
