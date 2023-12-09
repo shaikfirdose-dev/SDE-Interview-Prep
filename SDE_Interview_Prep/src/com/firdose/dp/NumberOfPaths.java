@@ -51,4 +51,5 @@ public class NumberOfPaths {
 		return way1 + way2;
 	}
 
+
 }
