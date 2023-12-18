@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PostOrderTraversal {
 	
-	List<Integer> al = new ArrayList()<>();
+	List<Integer> al = new ArrayList<>();
     public List<Integer> postorderTraversal(TreeNode root) {
         traversal(root);
         return al;

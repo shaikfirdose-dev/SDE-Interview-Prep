@@ -5,7 +5,7 @@ import java.util.List;
 
 public class InOrderTraversal {
 	
-	List<Integer> al = new ArrayList()<>();
+	List<Integer> al = new ArrayList<>();
     public List<Integer> inorderTraversal(TreeNode root) {
         traversal(root);
         return al;

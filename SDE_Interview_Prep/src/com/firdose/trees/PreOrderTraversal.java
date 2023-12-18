@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PreOrderTraversal {
 	
-	List<Integer> al = new ArrayList()<>();
+	List<Integer> al = new ArrayList<>();
     public List<Integer> preorderTraversal(TreeNode root) {
         traversal(root);
         return al;
