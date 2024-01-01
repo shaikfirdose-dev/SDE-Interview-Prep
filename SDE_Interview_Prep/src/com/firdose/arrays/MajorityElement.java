@@ -5,7 +5,7 @@ package com.firdose.arrays;
 
 public class MajorityElement {
 
-	public int majorityElement(int[] nums) {
+	public int majorityElement(int[] nums) {               // Boyer-Moore Majority Vote Algorithm 
 		int n = nums.length;
 		int val = nums[0];
 		int count = 1;
