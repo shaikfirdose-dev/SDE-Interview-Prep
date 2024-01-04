@@ -1,4 +1,5 @@
 
+//Question : Given a square matrix of N*N, print the outer boundary in clockwise direction
 
 package com.firdose.twodarrays;
 

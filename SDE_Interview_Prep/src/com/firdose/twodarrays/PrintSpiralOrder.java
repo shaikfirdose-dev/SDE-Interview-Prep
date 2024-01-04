@@ -1,3 +1,7 @@
+
+//Question : Given a square matrix of N*N, print the Spiral order of the matrix.
+
+
 package com.firdose.twodarrays;
 
 import java.util.Scanner;
