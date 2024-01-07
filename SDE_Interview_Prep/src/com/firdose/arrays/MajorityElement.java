@@ -1,6 +1,7 @@
 
 //Leetcode : https://leetcode.com/problems/majority-element/
 
+
 package com.firdose.arrays;
 
 public class MajorityElement {
