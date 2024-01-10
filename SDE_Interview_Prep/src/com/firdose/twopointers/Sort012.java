@@ -33,4 +33,34 @@ public class Sort012 {
 		}
 
 	}
+	
+	//using count sort
+//	public static void sort012(int a[], int n)
+//    {
+//        // code here 
+//        int max = Integer.MIN_VALUE;
+//        for(int i=0;i<n;i++){
+//            if(a[i]>max){
+//                max = a[i];
+//            }
+//        }
+//        int []count = new int[max+1];
+//        for(int i=0;i<n;i++){
+//            int val = a[i];
+//            count[val]++;
+//        }
+//        int[] sort = new int[n];
+//        int k=0;
+//        for(int i=0;i<count.length;i++){
+//            int c = count[i];
+//            for(int j=0;j<c;j++){
+//                sort[k]=i;
+//                k++;
+//            }
+//        }
+//        for(int i=0;i<n;i++){
+//            a[i]=sort[i];
+//        }
+//        
+//    }
 }
