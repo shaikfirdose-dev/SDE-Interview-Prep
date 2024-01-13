@@ -1,4 +1,5 @@
 
+
 //GFG: https://www.geeksforgeeks.org/problems/flip-bits0240/1
 
 package com.firdose.arrays;
