@@ -24,7 +24,7 @@ public class DoubleElement2 {
 	private static int doubleElement2(int[] arr) {
 		int ans = 0;
 		int n = arr.length;
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < 32; i++) {
 			int count = 0;
 			for (int j = 0; j < n; j++) {
 				if (checkBit(arr[j], i) == true) {
