@@ -1,5 +1,8 @@
 
 
+
+
+
 //Question: Given an array, we have to delete 1 element such that gcd of array is maximum
 
 //T.C: O(NlogN)
