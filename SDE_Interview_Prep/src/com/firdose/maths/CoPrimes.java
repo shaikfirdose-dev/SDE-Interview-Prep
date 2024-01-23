@@ -1,4 +1,8 @@
 
+
+
+
+
 //Question: Given N which is even, your task is to create N/2 pairs using numbers {1,2....,N} such that each pair is a co-prime. 
 //if not possible return -1
 //		
