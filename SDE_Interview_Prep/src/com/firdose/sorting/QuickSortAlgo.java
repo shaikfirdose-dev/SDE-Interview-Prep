@@ -1,5 +1,7 @@
 
 //Question : https://www.geeksforgeeks.org/problems/quick-sort/1?utm_source=gfg
+//T.C:O(NlogN)
+//S.C:O(1)
 
 package com.firdose.sorting;
 

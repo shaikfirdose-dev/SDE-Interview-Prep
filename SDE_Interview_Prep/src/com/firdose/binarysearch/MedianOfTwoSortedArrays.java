@@ -1,8 +1,8 @@
 
 //Leetcode (hard): https://leetcode.com/problems/median-of-two-sorted-arrays/
 
-T.C : O(logN)
-S.C:O(1)
+//T.C : O(logN)
+//S.C:O(1)
 
 package com.firdose.binarysearch;
 
