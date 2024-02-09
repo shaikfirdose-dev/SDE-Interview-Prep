@@ -1,3 +1,8 @@
+
+
+//T.C:O(nlogn)
+//s.C:O(1)
+
 package com.firdose.queues;
 
 import java.util.TreeSet;
