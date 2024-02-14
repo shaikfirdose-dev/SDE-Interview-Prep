@@ -2,20 +2,20 @@ package com.firdose.twopointers;
 
 public class MovesZeroesToEnd {
 	
-	void pushZerosToEnd(int[] arr, int n) {   
-        // code here
-        int[] a = new int[n];
-        int k=0;  							// T.C : O(N) S.C:O(N)
-        for(int i=0;i<n;i++){
-            if(arr[i]!=0){
-                a[k]=arr[i];
-                k++;
-            }
-        }
-        for(int i=0;i<n;i++){
-            arr[i]=a[i];
-        }
-    }
+//	void pushZerosToEnd(int[] arr, int n) {   
+//        // code here
+//        int[] a = new int[n];
+//        int k=0;  							// T.C : O(N) S.C:O(N)
+//        for(int i=0;i<n;i++){
+//            if(arr[i]!=0){
+//                a[k]=arr[i];
+//                k++;
+//            }
+//        }
+//        for(int i=0;i<n;i++){
+//            arr[i]=a[i];
+//        }
+//    }
 	
 	
 	
