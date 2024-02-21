@@ -1,11 +1,8 @@
 
 
-<<<<<<< HEAD
 //leetcode (medium) : https://leetcode.com/problems/copy-list-with-random-pointer/description/
 
 
-=======
->>>>>>> 199c3617fb2a93a958ded3c873b26a85220f5b2f
 package com.firdose.linkedlist;
 
 public class CloneLinkedList {
