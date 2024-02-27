@@ -2,6 +2,9 @@
 
 
 
+
+
+
 //Given an array A with N elements , you need to find the sum all sub arrays of array A. 
 
 
