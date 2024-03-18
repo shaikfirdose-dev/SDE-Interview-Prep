@@ -1,7 +1,11 @@
 
-Leetcode (hard): https://leetcode.com/problems/grid-illumination/
-T.C:O(L+Q)
-S.C:O(L)
+//Leetcode (hard): https://leetcode.com/problems/grid-illumination/
+//T.C:O(L+Q)
+//S.C:O(L)
+package com.firdose.hashmap;
+import java.util.HashMap;
+
+
 
 class Solution {
     public int[] gridIllumination(int n, int[][] lamps, int[][] queries) {
