@@ -10,7 +10,7 @@ public class ZeroSumSubarrays {
 		hm.put((long) 0, 1L);
 		long[] psum = func(arr);
 		long ans = 0;
-		for (int ep = 0; ep < arr.length; ep++) {
+		for (int lep = 0; ep < arr.length; ep++) {
 			ans = ans + hm.getOrDefault(psum[(int) ep], 0L);
 			hm.put(psum[ep], hm.getOrDefault(psum[ep], (long) 0) + 1L);
 		}
