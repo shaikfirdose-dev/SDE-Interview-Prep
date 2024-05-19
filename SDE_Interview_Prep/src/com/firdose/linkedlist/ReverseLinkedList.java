@@ -5,28 +5,43 @@ package com.firdose.linkedlist;
 
 public class ReverseLinkedList {
 
-	/**
-	 * Definition for singly-linked list.
-	 * public class ListNode {
-	 *     int val;
-	 *     ListNode next;
-	 *     ListNode() {}
-	 *     ListNode(int val) { this.val = val; }
-	 *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-	 * }
-	 */
-	public Node reverseList(Node head) {
+	public ListNode reverseList(ListNode head) {
+        //brute-force -->T.C:O(N) and S.C:O(N)
+        // if(head==null){
+        //     return null;
+        // }
+        // ListNode temp = head;
+        // Stack<Integer> st = new Stack<>();
+        // while(temp!=null){
+        //     st.push(temp.val);
+        //     temp = temp.next;
+        // }
+        // temp =head;
+        // while(temp!=null){
+        //     temp.val = st.pop();
+        //     temp = temp.next;
+        // }
+        // return head;
+
+		/*
+		 * Optimal Solution
+		 * T.C:O(N)
+		 * S.C:O(1)
+		 */
         if(head==null){
-            return head;
+            return null;
         }
-        Node prev = null;
-        Node curr = head;
+
+        ListNode curr = head;
+        ListNode prev = null;
+
         while(curr!=null){
-            Node currp1 = curr.next;
+            ListNode currp1 = curr.next;
             curr.next = prev;
             prev = curr;
-            curr=currp1;
+            curr = currp1;
         }
+
         return prev;
     }
 
