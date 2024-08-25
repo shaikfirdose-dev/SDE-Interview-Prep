@@ -7,6 +7,8 @@
 package com.firdose.binarysearch;
 
 public class BookAllocation {
+	
+	//brute force is linear search of pages
 
 	public static int findPages(int[] A, int N, int M) {
 		int low = maxArr(A);
