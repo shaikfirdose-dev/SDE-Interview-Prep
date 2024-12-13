@@ -54,7 +54,7 @@ public class AllAnagram {
 		for (int i = 0; i < p.length(); i++) {
 			pmap.put(p.charAt(i), pmap.getOrDefault(p.charAt(i), 0) + 1);
 		}
-
+			
 		int matchCount = 0;
 		HashMap<Character, Integer> smap = new HashMap<>();
 		for (int i = 0; i < p.length(); i++) {

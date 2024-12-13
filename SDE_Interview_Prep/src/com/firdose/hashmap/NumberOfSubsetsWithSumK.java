@@ -1,4 +1,4 @@
-package com.firdose.backtracking;
+package com.firdose.hashmap;
 
 public class NumberOfSubsetsWithSumK {
 	
