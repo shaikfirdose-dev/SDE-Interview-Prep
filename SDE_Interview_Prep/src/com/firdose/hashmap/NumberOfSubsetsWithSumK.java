@@ -61,3 +61,43 @@ public class NumberOfSubsetsWithSumK {
 //    }
 
 }
+
+
+
+//optimized
+
+class Solution {
+    // Function to calculate the number of subsets with a given sum
+    public int perfectSum(int[] nums, int target) {
+        // code here
+        int n = nums.length;
+        int[][] dp = new int[n][target+1];
+        for(int i=0;i<n;i++){
+            Arrays.fill(dp[i], -1);
+        }
+        
+        return helper(n-1, nums, target, dp, 0);
+        
+    }
+    
+    public int helper(int i, int[] nums, int target, int[][] dp, int currSum){
+        if(i<0){
+            return (target==currSum)?1:0;
+        }
+    
+        
+        if(dp[i][currSum]!=-1){
+            return dp[i][currSum];
+        }
+        
+        int pick = 0;
+        if(target>=currSum+nums[i]){
+            pick = helper(i-1, nums, target, dp, currSum+nums[i]);
+        }
+        
+        int notPick = helper(i-1, nums, target, dp, currSum);
+        
+        dp[i][currSum] = pick+notPick;
+        return pick+notPick;
+    }
+}
