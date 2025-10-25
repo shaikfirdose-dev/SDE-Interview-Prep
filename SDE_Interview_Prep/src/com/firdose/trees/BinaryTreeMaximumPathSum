@@ -1,0 +1,57 @@
+
+TC:O(N)
+
+class Solution {
+    static int ans;
+    public int maxPathSum(TreeNode root) {
+        ans = Integer.MIN_VALUE;
+        if(root==null){
+            return 0;
+        }
+
+        helper(root);
+        return ans;
+    }
+
+    public int helper(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+
+        int left = Math.max(0,helper(root.left));
+        int right =Math.max(0, helper(root.right));
+        
+        ans = Math.max(ans, left+right+root.val);
+        return Math.max(left, right)+root.val;
+    }
+}
+
+/*
+Code Walkthrough
+private int maxSum = Integer.MIN_VALUE;
+– We start with the lowest possible value because any path sum could be negative. This is our high score tracker.
+
+public int maxPathSum(TreeNode root)
+– Entry point. Calls DFS on the root. After DFS finishes, maxSum is the ultimate max path power.
+
+int dfs(TreeNode root)
+– This is the dungeon crawl: recursively explores left and right subtrees.
+
+if(root == null) return 0;
+– Base case: if no node exists, contribute nothing.
+
+int left = Math.max(0, dfs(root.left));
+– Dive into the left subtree. If it’s negative, we ignore it (Math.max(0, ...)). Think of it like leaving a dud hero at home.
+
+int right = Math.max(0, dfs(root.right));
+– Same deal for the right side.
+
+maxSum = Math.max(maxSum, left + right + root.val);
+– Here’s the big combo check: left hero + current hero + right hero. Maybe this is our new record!
+
+return root.val + Math.max(left, right);
+– When returning up the tree, we can only pick one branch to continue the path. This keeps paths continuous and valid.
+
+And that’s it! Every node gets considered as the “middle hero,” negative paths are ignored, and we always keep track of the max. By the end, we’ve found the ultimate superhero path.
+
+*/
