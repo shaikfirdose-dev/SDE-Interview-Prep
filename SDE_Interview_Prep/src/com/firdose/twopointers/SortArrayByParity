@@ -1,0 +1,32 @@
+
+#input: [3,1,2,4]
+#output : [2,4,3,1]
+
+
+class Solution {
+    public int[] sortArrayByParity(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        int k = 0;
+        int i = 0;
+        while(i<n){
+            if(nums[i]%2==0){
+                ans[k] = nums[i];
+                k++;
+            }
+            i++;
+        }
+
+        i = 0;
+
+        while(i<n){
+            if(nums[i]%2!=0){
+                ans[k] = nums[i];
+                k++;
+            }
+            i++;
+        }
+
+        return ans;
+    }
+}
