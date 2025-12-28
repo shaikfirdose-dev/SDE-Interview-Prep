@@ -1,0 +1,60 @@
+Question:
+
+Given an array of unsorted numbers, find all unique triplets in it that add up to zero.
+
+Examples
+Example 1
+Input: [-3, 0, 1, 2, -1, 1, -2]
+Output: [[-3, 1, 2], [-2, 0, 2], [-2, 1, 1], [-1, 0, 1]]
+Explanation: There are four unique triplets whose sum is equal to zero.
+
+
+T.C: O(N*2)
+S.C:O(1)
+--------------------------------------------------------------
+import java.util.*;
+
+class Solution {
+
+  public static List<List<Integer>> searchTriplets(int[] arr) {
+    List<List<Integer>> triplets = new ArrayList<>();
+    // TODO: Write your code here
+    int n = arr.length;
+    Arrays.sort(arr);
+
+    for(int i=0;i<n;i++){
+      if(i>0 && arr[i-1] == arr[i]){
+        continue;
+      }
+      int left = i+1;
+      int right = n-1;
+
+      while(left < right){
+        int sum = arr[i]+arr[left]+arr[right];
+
+        if(sum==0){
+          triplets.add(Arrays.asList(arr[i], arr[left], arr[right]));
+          while(left < right && arr[left]==arr[left+1]){
+            left++;
+          }
+
+          while(left < right && arr[right]==arr[right-1]){
+            right--;
+          }
+
+          left++;
+          right--;
+        }
+
+        else if(sum < 0){
+          left++;
+        }
+        else{
+          right--;
+        }
+      }
+
+    }
+    return triplets;
+  }
+}
