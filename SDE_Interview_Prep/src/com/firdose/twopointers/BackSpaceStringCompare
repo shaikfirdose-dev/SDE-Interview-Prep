@@ -1,0 +1,58 @@
+Question: 
+
+Given two strings s and t, return true if they are equal when both are typed into empty text editors. '#' means a backspace character.
+
+Note that after backspacing an empty text, the text will continue empty.
+
+T.C:O(N+M)
+S.C:O(1)
+-----------------------------
+
+
+class Solution {
+    public boolean backspaceCompare(String s, String t) {
+        int i = s.length() - 1;
+        int j = t.length() - 1;
+
+        while (i >= 0 || j >= 0) {
+
+            int id1 = validCharIndex(s, i);
+            int id2 = validCharIndex(t, j);
+
+            if (id1 < 0 && id2 < 0) {
+                return true;
+            }
+
+            if (id1 < 0 || id2 < 0) {
+                return false;
+            }
+
+            if (s.charAt(id1) != t.charAt(id2)) {
+                return false;
+            }
+
+            i = id1 - 1;
+            j = id2 - 1;
+        }
+
+        return true;
+    }
+
+    public int validCharIndex(String s, int ind) {
+        int backSpaceCount = 0;
+
+        while (ind >= 0) {
+            if (s.charAt(ind) == '#') {
+                backSpaceCount++;
+            } else if (backSpaceCount > 0) {
+                backSpaceCount--;
+            } else {
+                break;
+            }
+
+            ind--;
+        }
+
+        return ind;
+    }
+}
