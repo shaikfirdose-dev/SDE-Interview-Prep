@@ -1,0 +1,73 @@
+
+
+Given the head of a Singly LinkedList, write a method to modify the LinkedList such that the nodes from the second half of the LinkedList are inserted alternately to the nodes from the first half in reverse order. So if the LinkedList has nodes 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null, your method should return 1 -> 6 -> 2 -> 5 -> 3 -> 4 -> null.
+
+Your algorithm should use only constant space the input LinkedList should be modified in-place.
+
+Example 1:
+
+Input: 2 -> 4 -> 6 -> 8 -> 10 -> 12 -> null
+Output: 2 -> 12 -> 4 -> 10 -> 6 -> 8 -> null 
+
+T.C:O(N)
+S.C:O(1)
+-------------------------------------
+
+
+
+/*class ListNode {
+  int val = 0;
+  ListNode next;
+
+  ListNode(int value) {
+    this.val = value;
+  }
+}*/
+
+class Solution {
+
+  public ListNode reorder(ListNode head) {
+
+    ListNode slow = head;
+    ListNode fast = head;
+
+    while (fast.next != null && fast.next.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    ListNode head1 = head;
+    ListNode head2 = slow.next;
+
+    slow.next = null;
+
+    head2 = reverse(head2);
+
+    while (head2 != null) {
+      ListNode tempp1 = head1.next;
+      ListNode tempp2 = head2.next;
+
+      head1.next = head2;
+      head2.next = tempp1;
+
+      head1 = tempp1;
+      head2 = tempp2;
+    }
+
+    return head;
+  }
+
+  private ListNode reverse(ListNode h) {
+    ListNode prev = null;
+
+    while (h != null) {
+      ListNode temp = h.next;
+
+      h.next = prev;
+      prev = h;
+      h = temp;
+    }
+
+    return prev;
+  }
+}
