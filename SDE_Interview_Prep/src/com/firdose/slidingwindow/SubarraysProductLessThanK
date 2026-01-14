@@ -1,0 +1,48 @@
+Given an array with positive numbers and a positive target number, find all of its contiguous subarrays whose product is less than the target number.
+
+Note: This problem is very similar to the previous one. Here, we are trying to find all the subarrays, whereas in the previous problem, we focused on finding only the count of such subarrays.
+
+Example 1:
+
+Input: [2, 5, 3, 10], target=30                                              
+Output: [2], [5], [2, 5], [3], [5, 3], [10]                           
+Explanation: There are six contiguous subarrays whose product is less than the target.
+
+
+
+
+import java.util.*;
+
+class Solution {
+
+  public List<List<Integer>> findSubarrays(int[] nums, int target) {
+    List<List<Integer>> result = new ArrayList<>();
+    if (target <= 1 || nums.length == 0) {
+      return result;
+    }
+    // TODO: Write your code here
+
+    int left = 0;
+    int right = 0;
+    int prod = 1;
+
+    while (right < nums.length) {
+      prod *= nums[right];
+
+      while (prod >= target) {
+        prod /= nums[left];
+        left++;
+      }
+
+      List<Integer> subarray = new LinkedList<>();
+      for (int i = right; i >= left; i--) {
+        subarray.add(0, nums[i]);
+
+        result.add(new LinkedList(subarray));
+      }
+
+      right++;
+    }
+    return result;
+  }
+}
