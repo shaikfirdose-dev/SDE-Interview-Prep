@@ -28,10 +28,11 @@ class Solution {
 
   public List<Interval> merge(List<Interval> intervals) {
     List<Interval> mergedIntervals = new LinkedList<Interval>();
-    // TODO: Write your code here 
     Collections.sort(intervals, (a,b) -> Integer.compare(a.start, b.start));
+
     Iterator<Interval> it = intervals.iterator();
     Interval first = it.next();
+
     int start = first.start;
     int end = first.end;
 
