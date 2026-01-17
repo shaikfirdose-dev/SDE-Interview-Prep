@@ -1,0 +1,53 @@
+Problem Statement
+Given a list of intervals, merge all the overlapping intervals to produce a list that has only mutually exclusive intervals.
+
+Example 1:
+
+Intervals: [[1,4], [2,5], [7,9]]
+Output: [[1,5], [7,9]]
+Explanation: Since the first two intervals [1,4] and [2,5] overlap, we merged them into one [1,5].
+
+T.C: O(NlogN)
+S.C:O(1)
+
+
+
+import java.util.*;
+
+/*class Interval {
+  int start;
+  int end;
+
+  public Interval(int start, int end) {
+    this.start = start;
+    this.end = end;
+  }
+};*/
+
+class Solution {
+
+  public List<Interval> merge(List<Interval> intervals) {
+    List<Interval> mergedIntervals = new LinkedList<Interval>();
+    // TODO: Write your code here 
+    Collections.sort(intervals, (a,b) -> Integer.compare(a.start, b.start));
+    Iterator<Interval> it = intervals.iterator();
+    Interval first = it.next();
+    int start = first.start;
+    int end = first.end;
+
+    while(it.hasNext()){
+      Interval nextInt = it.next();
+      if(end>=nextInt.start){
+        end = Math.max(end, nextInt.end);
+      }
+      else{
+        mergedIntervals.add(new Interval(start, end));
+        start = nextInt.start;
+        end = nextInt.end;
+      }
+    }
+
+    mergedIntervals.add(new Interval(start, end));
+    return mergedIntervals;
+  }
+}
