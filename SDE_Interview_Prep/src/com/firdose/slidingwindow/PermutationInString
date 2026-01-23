@@ -1,0 +1,78 @@
+
+Given a string and a pattern, find out if the string contains any permutation of the pattern.
+
+Permutation is defined as the re-arranging of the characters of the string. For example, “abc” has the following six permutations:
+
+abc
+acb
+bac
+bca
+cab
+cba
+If a string has ‘n’ distinct characters, it will have n! permutations.
+
+Example 1:
+
+Input: str="oidbcaf", pattern="abc"   
+Output: true   
+Explanation: The string contains "bca" which is a permutation of the given pattern.
+
+
+------------------------------------
+
+
+
+
+import java.util.*;
+
+class Solution {
+    public boolean findPermutation(String s, String p) {
+      // TODO: Write your code here
+      int n =  s.length();
+      int m = p.length();
+
+      Map<Character, Integer> smap = new HashMap<>();
+      Map<Character, Integer> pmap = new HashMap<>();
+
+      for(int i=0;i<p.length();i++){
+        pmap.put(p.charAt(i), pmap.getOrDefault(p.charAt(i),0)+1);
+      }
+
+      int mc = 0;
+      for(int i=0;i<p.length();i++){
+        smap.put(s.charAt(i), smap.getOrDefault(s.charAt(i),0)+1);
+
+        if(smap.get(s.charAt(i)) <= pmap.getOrDefault(s.charAt(i),0)){
+          mc++;
+        }
+      }
+
+      if(mc==m){
+        return true;
+      }
+
+      int st = 0;
+      int end = m;
+
+      while(end<n){
+        smap.put(s.charAt(end), smap.getOrDefault(s.charAt(end),0)+1);
+
+        if(smap.get(s.charAt(end)) <= pmap.getOrDefault(s.charAt(end),0)){
+          mc++;
+        }
+
+        smap.put(s.charAt(st), smap.get(s.charAt(st))-1);
+        if(smap.get(s.charAt(st)) < pmap.getOrDefault(s.charAt(st),0)){
+          mc--;
+        }
+
+        if(mc==m){
+          return true;
+        }
+
+        st++;
+        end++;
+      }
+      return false;
+    }
+}
