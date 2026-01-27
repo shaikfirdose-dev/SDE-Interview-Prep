@@ -1,0 +1,50 @@
+Given an unsorted array containing numbers, find the smallest missing positive number in it.
+
+Note: Positive numbers start from '1'.
+
+Example 1:
+
+Input: [-3, 1, 5, 4, 2]
+Output: 3
+Explanation: The smallest missing positive number is '3'
+Example 2:
+
+Input: [3, -2, 0, 1, 2]
+Output: 4
+
+---------------------------------------------
+
+
+
+
+
+class Solution {
+
+  public int findNumber(int[] nums) {
+
+    int n = nums.length;
+    int i = 0;
+
+    while (i < n) {
+      if (nums[i] <= 0 || nums[i] > n || nums[i] == i + 1) {
+        i++;
+      } else {
+        int idx = nums[i] - 1;
+        if (nums[idx] == nums[i]) {
+          i++;
+          continue;
+        }
+        int temp = nums[idx];
+        nums[idx] = nums[i];
+        nums[i] = temp;
+      }
+    }
+
+    for (int j = 0; j < n; j++) {
+      if (nums[j] != j + 1) {
+        return j + 1;
+      }
+    }
+    return nums.length + 1;
+  }
+}
