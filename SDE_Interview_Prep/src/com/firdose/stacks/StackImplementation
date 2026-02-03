@@ -1,0 +1,128 @@
+
+// Stack implementation using Array
+public class Stack {
+
+    // Array to store stack elements
+    private int[] stack;
+
+    // Index of the top element in stack
+    private int top;
+
+    // Maximum capacity of stack
+    private int capacity;
+
+    // Constructor to initialize stack with given capacity
+    public Stack(int capacity) {
+        this.stack = new int[capacity]; // allocate memory
+        this.capacity = capacity;
+        this.top = -1; // stack is empty initially
+    }
+
+    // Push operation: adds element to the top of stack
+    public void push(int value) {
+
+        // Check for stack overflow condition
+        if (top == capacity - 1) {
+            log.error("Stack Overflow");
+            return; // stop execution if stack is full
+        }
+
+        // Increment top and insert value
+        stack[++top] = value;
+    }
+
+    // Pop operation: removes and returns top element
+    public int pop() {
+
+        // Check for stack underflow condition
+        if (isEmpty()) {
+            log.error("Stack Underflow");
+            return -1; // invalid value indicating error
+        }
+
+        // Return element and decrement top
+        return stack[top--];
+    }
+
+    // Peek operation: returns top element without removing it
+    public int peek() {
+
+        // Check if stack is empty
+        if (isEmpty()) {
+            log.error("Stack Underflow");
+            return -1;
+        }
+
+        // Return top element
+        return stack[top];
+    }
+
+    // Checks whether stack is empty
+    public Boolean isEmpty() {
+        return top == -1;
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+// Node class representing each element in the stack
+class ListNode {
+
+    int val;        // value stored in node
+    ListNode next;  // reference to next node
+
+    // Constructor to initialize node
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
+}
+
+// Stack implementation using Linked List
+public class Stack {
+
+    // Top pointer of the stack
+    private ListNode top;
+
+    // Constructor initializes empty stack
+    public Stack() {
+        this.top = null;
+    }
+
+    // Push operation: inserts element at the top of stack
+    public void push(int value) {
+
+        // Create new node with given value
+        ListNode newNode = new ListNode(value, null);
+
+        // Link new node to current top
+        newNode.next = top;
+
+        // Move top to new node
+        top = newNode;
+    }
+
+    // Pop operation: removes and returns top element
+    public int pop() {
+
+        // Check for stack underflow
+        if (isEmpty()) {
+            log.error("Stack is empty");
+            return -1;
+        }
+
+        // Store top value
+        int popEle = top.val;
+
+        // Move top to next node
+        top = top.next;
+
+        // Return removed element
+        return popEle;
+    }
+
+    // Checks whether stack is empty
+    public Boolean isEmpty() {
+        return top == null;
+    }
+}
