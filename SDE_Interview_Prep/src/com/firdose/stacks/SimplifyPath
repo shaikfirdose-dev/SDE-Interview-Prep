@@ -1,0 +1,41 @@
+Given an absolute file path in a Unix-style file system, simplify it by converting ".." to the previous directory and removing any "." or multiple slashes. The resulting string should represent the shortest absolute path.
+
+Examples
+Example 1
+Input: path = "/a//b////c/d//././/.."
+Expected Output: "/a/b/c"
+Explanation:
+Convert multiple slashes (//) into single slashes (/).
+"." refers to the current directory and is ignored.
+".." moves up one directory, so "d" is removed.
+The simplified path is "/a/b/c".
+
+---------------------------------------------------------------------------------
+
+T.C:O(N)
+S.C:O(N)
+
+
+
+import java.util.*;
+
+public class Solution {
+
+  public String simplifyPath(String path) {
+    Stack<String> st = new Stack<>();
+    String[] arr = path.split("/+");
+    int n = arr.length;
+
+    for (String p : arr) {
+      if (p.equals("..")) {
+        if (!st.isEmpty()) {
+          st.pop();
+        }
+      } else if (!p.isEmpty() && !p.equals(".")) {
+        st.push(p);
+      }
+    }
+
+    return "/" + String.join("/", st);
+  }
+}
