@@ -1,0 +1,55 @@
+Given the head node of a singly linked list, modify the list such that any node that has a node with a greater value to its right gets removed. The function should return the head of the modified list.
+
+Examples:
+
+Input: 5 -> 3 -> 7 -> 4 -> 2 -> 1
+Output: 7 -> 4 -> 2 -> 1
+Explanation: 5 and 3 are removed as they have nodes with larger values to their right.
+
+Input: 1 -> 2 -> 3 -> 4 -> 5
+Output: 5
+Explanation: 1, 2, 3, and 4 are removed as they have nodes with larger values to their right.
+
+Input: 5 -> 4 -> 3 -> 2 -> 1
+Output: 5 -> 4 -> 3 -> 2 -> 1
+Explanation: None of the nodes are removed as none of them have nodes with larger values to their right.
+
+
+
+--------------------------------------
+Companies: Sigmoid Analytics
+-------------------------------------------
+
+
+
+
+import java.util.Stack;
+
+/*class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val) { this.val = val; }
+}*/
+
+class Solution {
+
+  public ListNode removeNodes(ListNode head) {
+    // TODO: Write your code here
+    Stack<ListNode> st = new Stack<>();
+
+    ListNode curr = head;
+
+    while (curr != null) {
+      while (!st.isEmpty() && st.peek().val < curr.val) {
+        st.pop();
+      }
+      if (!st.isEmpty()) {
+        st.peek().next = curr;
+      }
+
+      st.push(curr);
+      curr = curr.next;
+    }
+    return st.isEmpty() ? null : st.get(0);
+  }
+}
