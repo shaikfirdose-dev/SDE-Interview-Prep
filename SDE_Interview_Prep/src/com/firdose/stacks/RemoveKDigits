@@ -1,0 +1,43 @@
+//Leetcode: https://leetcode.com/problems/remove-k-digits/description/
+
+
+Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.
+
+T.C:O(N)
+S.C:O(N)
+
+
+public String removeKdigits(String num, int k) {
+        Stack<Character> st = new Stack();
+
+        for (char ch : num.toCharArray()) {
+            while (k > 0 && !st.isEmpty() && st.peek() > ch) {
+                st.pop();
+                k--;
+            }
+
+            st.push(ch);
+        }
+
+        //remove elements from the stack if k elements not removed
+        while (k > 0) {
+            st.pop();
+            k--;
+        }
+
+        //add all characters into stringbilder
+        StringBuilder sb = new StringBuilder();
+        while (!st.isEmpty()) {
+            sb.append(st.pop());
+        }
+
+        //reverse the stack
+        sb.reverse();
+
+        //remove leading/front zoroes from the string
+        while (sb.length() > 1 && sb.charAt(0) == '0') {
+            sb.deleteCharAt(0);
+        }
+
+        return sb.toString().isBlank() ? "0" : sb.toString();
+    }
