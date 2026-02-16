@@ -1,0 +1,79 @@
+Given a binary tree, return true if it is an Even-Odd tree. Otherwise, return false.
+
+The Even-odd tree must follow below two rules:
+
+At every even-indexed level (starting from 0), all node values must be odd and arranged in strictly increasing order from left to right.
+At every odd-indexed level, all node values must be even and arranged in strictly decreasing order from left to right.
+Examples
+Example 1
+Input:
+    1
+   / \
+  10  4
+ / \
+3   7
+Expected Output: true
+Justification: The tree follows both conditions for each odd and even level. So, it is an odd-even tree..
+
+T.C:O(N)
+S.C:O(N)
+-------------------------------
+
+
+import java.util.*;
+
+// class TreeNode {
+//     int val;
+//     TreeNode left, right;
+//     TreeNode(int val) {
+//         this.val = val;
+//     }
+// }
+
+class Solution {
+
+  public boolean isEvenOddTree(TreeNode root) {
+    // ToDo: Write Your Code Here.
+    Queue<TreeNode> q = new LinkedList<>();
+    q.add(root);
+    boolean flag = true;
+    while (!q.isEmpty()) {
+      int n = q.size();
+      List<Integer> level = new ArrayList<>();
+      for (int i = 0; i < n; i++) {
+        TreeNode rem = q.remove();
+        level.add(rem.val);
+
+        if (rem.left != null) {
+          q.add(rem.left);
+        }
+
+        if (rem.right != null) {
+          q.add(rem.right);
+        }
+      }
+
+      if (flag) {
+        for (int i = 0; i < n; i++) {
+          if (
+            level.get(i) % 2 == 0 || (i > 0 && level.get(i - 1) >= level.get(i))
+          ) {
+            return false;
+          }
+        }
+      } else {
+        for (int i = 0; i < n; i++) {
+          if (
+            level.get(i) % 2 == 1 || (i > 0 && level.get(i - 1) <= level.get(i))
+          ) {
+            return false;
+          }
+        }
+      }
+
+      flag = !flag;
+    }
+
+    return true;
+  }
+}
