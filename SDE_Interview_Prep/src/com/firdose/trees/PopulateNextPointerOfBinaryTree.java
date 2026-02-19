@@ -52,3 +52,53 @@ public class PopulateNextPointerOfBinaryTree {
 		return;
 	}
 }
+
+
+
+/* Different Approach*/
+import java.util.*;
+
+/*class TreeNode {
+  int val;
+  TreeNode left;
+  TreeNode right;
+  TreeNode next;
+
+  TreeNode(int x) {
+    val = x;
+    left = right = next = null;
+  }
+};*/
+
+class Solution {
+
+  public TreeNode connect(TreeNode root) {
+    // TODO: Write your code here
+    if (root == null) {
+      return null;
+    }
+
+    Queue<TreeNode> q = new LinkedList<>();
+    q.add(root);
+    while (!q.isEmpty()) {
+      int n = q.size();
+      TreeNode prev = null;
+      for (int i = 0; i < n; i++) {
+        TreeNode rem = q.remove();
+        if (prev != null) {
+          prev.next = rem;
+        }
+
+        prev = rem;
+
+        if (rem.left != null) {
+          q.add(rem.left);
+        }
+        if (rem.right != null) {
+          q.add(rem.right);
+        }
+      }
+    }
+    return root;
+  }
+}
